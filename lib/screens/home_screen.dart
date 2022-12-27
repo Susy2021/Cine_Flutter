@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {}, icon: const Icon(Icons.search_outlined))
           ],
         ),
+       
         body: SingleChildScrollView(
           child: Column(
             children: [

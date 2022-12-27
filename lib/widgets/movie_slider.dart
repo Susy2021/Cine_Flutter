@@ -6,7 +6,7 @@ class MovieSlider extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 200,
-      color: Colors.blue.shade100,
+      //color: Colors.blue.shade100,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -15,7 +15,7 @@ class MovieSlider extends StatelessWidget {
             child: Text('Populares',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           ),
-          const SizedBox( height: 5),
+          const SizedBox( height: 2),
           Expanded(
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -33,9 +33,9 @@ class _MoviePoster extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 100,
-      height: 100,
-      color: Colors.blue,
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      height: 110,
+      //color: Colors.blue,
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Column(
         children:  [
 
@@ -45,16 +45,16 @@ class _MoviePoster extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: const FadeInImage(
-              placeholder: AssetImage('asset/no-image.jpg'),
+              placeholder: AssetImage('assets/no-image.jpg'),
               image: NetworkImage('https://via.placeholder.com/300x400'),
               width: 100,
-              height: 100,
+              height: 120,
               fit: BoxFit.cover,
             ),
           ),
         ),
         const SizedBox(
-          height: 5,
+          height: 2,
         ),
         const Text(
           'Actores que participan en las pelis que muestro acá',

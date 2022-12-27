@@ -26,8 +26,8 @@ class _CastCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
-      width: 110,
-      height: 100,
+      width: 150,
+      height: 190,
       color: Colors.cyanAccent.shade400,
       child: Column(
         children: [
@@ -36,12 +36,12 @@ class _CastCards extends StatelessWidget {
             child:const FadeInImage(
               placeholder: AssetImage('assets/no-image.jpg') ,
               image: NetworkImage('https://via.placeholder.com/150x300'),
-              height: 140,
-              width: 100,
+              height: 150,
+              width: 190,
               fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(width: 5,),
+          const SizedBox(width: 2),
           
           const Text(
             'actor.name jgahdgafhgajsgfbc bjahdhgaj',
