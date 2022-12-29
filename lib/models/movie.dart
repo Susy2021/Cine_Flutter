@@ -33,6 +33,8 @@ class Movie {
   double voteAverage;
   int voteCount;
 
+  String? heroId;
+
   get fullPosterImg {
     if (this.posterPath != null)
       return 'https://image.tmdb.org/t/p/w500${this.posterPath}';
@@ -48,8 +50,6 @@ class Movie {
   }
 
   factory Movie.fromJson(String str) => Movie.fromMap(json.decode(str));
-
-  //String toJson() => json.encode(toMap());
 
   factory Movie.fromMap(Map<String, dynamic> json) => Movie(
         adult: json["adult"],
@@ -67,37 +67,4 @@ class Movie {
         voteAverage: json["vote_average"].toDouble(),
         voteCount: json["vote_count"],
       );
-
-  // Map<String, dynamic> toMap() => {
-  //   "adult": adult,
-  //   "backdrop_path": backdropPath,
-  //   "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
-  //   "id": id,
-  //   "original_language": originalLanguageValues.reverse[originalLanguage],
-  //   "original_title": originalTitle,
-  //   "overview": overview,
-  //   "popularity": popularity,
-  //   "poster_path": posterPath,
-  //   "release_date": "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
-  //   "title": title,
-  //   "video": video,
-  //   "vote_average": voteAverage,
-  //   "vote_count": voteCount,};
 }
-
-//enum OriginalLanguage { EN, ID }
-
-//final originalLanguageValues = EnumValues({
- //   "en": OriginalLanguage.EN,
- //   "id": OriginalLanguage.ID});
-
-//class EnumValues<T> {
- //   Map<String, T> map;
-//  Map<T, String> reverseMap;
-
-//   EnumValues(this.map);
-
- //   Map<T, String> get reverse {
- //       if (reverseMap == null) {
- //           reverseMap = map.map((k, v) => new MapEntry(v, k));}
- //       return reverseMap;}}

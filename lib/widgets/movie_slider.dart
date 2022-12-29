@@ -29,11 +29,10 @@ class _MovieSliderState extends State<MovieSlider> {
     });
   }
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
+  //@override
+  //void dispose() {
+  //// TODO: implement dispose
+  //super.dispose();}
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +56,9 @@ class _MovieSliderState extends State<MovieSlider> {
                 controller: scrollController,
                 scrollDirection: Axis.horizontal,
                 itemCount: widget.movies.length,
-                itemBuilder: (_, int index) =>
-                    _MoviePoster(widget.movies[index])),
+                itemBuilder: (_, int index) => _MoviePoster(
+                      widget.movies[index],
+                    )),
           ),
         ],
       ),
@@ -69,7 +69,9 @@ class _MovieSliderState extends State<MovieSlider> {
 class _MoviePoster extends StatelessWidget {
   final Movie movie;
 
-  const _MoviePoster(this.movie);
+  const _MoviePoster(
+    this.movie,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -83,16 +85,16 @@ class _MoviePoster extends StatelessWidget {
           onTap: () =>
               Navigator.popAndPushNamed(context, 'details', arguments: movie),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: FadeInImage(
-              placeholder: const AssetImage('assets/no-image.jpg'),
-              image: NetworkImage(movie.fullPosterImg),
-              width: 100,
-              height: 120,
-              fit: BoxFit.cover,
+              borderRadius: BorderRadius.circular(20),
+              child: FadeInImage(
+                placeholder: const AssetImage('assets/no-image.jpg'),
+                image: NetworkImage(movie.fullPosterImg),
+                width: 100,
+                height: 120,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
         const SizedBox(
           height: 2,
         ),

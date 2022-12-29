@@ -8,7 +8,7 @@ import '../models/models.dart';
 class CastingCards extends StatelessWidget {
   final int movieId;
 
-  const CastingCards({super.key, required this.movieId});
+  const CastingCards( this.movieId);
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +33,10 @@ class CastingCards extends StatelessWidget {
           height: 180,
           //color: Colors.deepOrangeAccent.shade400,
           child: ListView.builder(
-              itemCount: 10,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (_, int index) => _CastCards()),
+            itemCount: cast.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (_, int index) => _CastCards(cast[index]),
+          ),
         );
       },
     );
@@ -43,6 +44,10 @@ class CastingCards extends StatelessWidget {
 }
 
 class _CastCards extends StatelessWidget {
+  final Cast actor;
+
+  const _CastCards( this.actor);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,17 +59,17 @@ class _CastCards extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: const FadeInImage(
-              placeholder: AssetImage('assets/no-image.jpg'),
-              image: NetworkImage('https://via.placeholder.com/150x300'),
+            child: FadeInImage(
+              placeholder: const AssetImage('assets/no-image.jpg'),
+              image: NetworkImage(actor.fullProfilePath),
               height: 140,
               width: 170,
               fit: BoxFit.cover,
             ),
           ),
           const SizedBox(width: 2),
-          const Text(
-            'actor.name jgahdgafhgajsgfbc bjahdhgaj',
+          Text(
+            actor.name,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
