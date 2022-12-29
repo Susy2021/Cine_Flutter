@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peliculas/models/models.dart';
 import 'package:peliculas/providers/movies_provider.dart';
-import 'package:peliculas/providers/movies_provider.dart';
 import 'package:provider/provider.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
@@ -48,9 +47,10 @@ class MovieSearchDelegate extends SearchDelegate {
       return _emptyContainer();
     }
     final moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
+    moviesProvider.getSuggestionByQuery(query);
 
-    return FutureBuilder(
-      future: moviesProvider.searchMovies(query),
+    return StreamBuilder(
+      stream: moviesProvider.suggestionStream,
       builder: (_, AsyncSnapshot<List<Movie>> snapshot) {
         if (!snapshot.hasData) return _emptyContainer();
 
