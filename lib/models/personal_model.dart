@@ -28,12 +28,12 @@ class PersonalModel {
   String username;
   String nombre;
   String apellido;
-  int dni;
+  String dni;
   String fechaNacimiento;
-  int edad;
-  int? telefono;
+  String edad;
+  String? telefono;
   String? direccion;
-  int sueldoMensual;
+  String sueldoMensual;
 
   factory PersonalModel.fromJson(Map<String, dynamic> json) => PersonalModel(
         id: json["id"],

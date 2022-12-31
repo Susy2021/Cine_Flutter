@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/providers/personal_list_provider.dart';
 
 import 'package:peliculas/screens/screens.dart';
 import 'package:provider/provider.dart';
@@ -26,17 +27,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Películas',
-      initialRoute: 'home',
-      routes: {
-        'home': (_) => HomeScreen(),
-        'details': (_) => DetailsScreen(),
-        'personal': (_) => PersonalScreen(),
-      },
-      theme: ThemeData.light().copyWith(
-        appBarTheme: AppBarTheme(color: Colors.deepPurple.shade300),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PersonalListProvider())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Películas',
+        initialRoute: 'home',
+        routes: {
+          'home': (_) => HomeScreen(),
+          'details': (_) => DetailsScreen(),
+          'personal': (_) => PersonalScreen(),
+        },
+        theme: ThemeData.light().copyWith(
+          appBarTheme: AppBarTheme(color: Colors.deepPurple.shade300),
+        ),
       ),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -16,20 +15,19 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.menu),
-            onPressed:
-                () {Navigator.pushNamed(context, 'personal');}, //TODO: ESTO ES PARA IR A LA PAGINA DE PERSONAL!!!!
+            onPressed: () {
+              Navigator.pushNamed(context, 'personal');
+            }, //TODO: ESTO ES PARA IR A LA PAGINA DE PERSONAL!!!!
           ),
           centerTitle: true,
           title: const Text('Cine'),
           elevation: 10.0,
           actions: [
-            IconButton( 
-                icon: const Icon(Icons.search_outlined),
-                onPressed: () => showSearch(
-                  context: context, 
-                  delegate: MovieSearchDelegate() 
-                  ),
-              )
+            IconButton(
+              icon: const Icon(Icons.search_outlined),
+              onPressed: () =>
+                  showSearch(context: context, delegate: MovieSearchDelegate()),
+            )
           ],
         ),
         body: SingleChildScrollView(
@@ -41,7 +39,7 @@ class HomeScreen extends StatelessWidget {
               MovieSlider(
                 movies: moviesProvider.popularMovies,
                 title: 'Populares',
-                onNextPage: () => moviesProvider.getPopularMovies() ,
+                onNextPage: () => moviesProvider.getPopularMovies(),
               ),
             ],
           ),
