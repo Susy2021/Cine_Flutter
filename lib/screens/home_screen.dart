@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.menu),
             onPressed: () {
               Navigator.pushNamed(context, 'personal');
-            }, //TODO: ESTO ES PARA IR A LA PAGINA DE PERSONAL!!!!
+            },
           ),
           centerTitle: true,
           title: const Text('Cine'),

@@ -8,7 +8,7 @@ class PersonalListProvider extends ChangeNotifier {
   List<HorariosModel> horarios = [];
   List<ContactosModel> contactos = [];
 
-  //String tipoSeleccionado = 'http' ; //TODO ver que fernando uso valor y tipo y yo otras variables
+  //String tipoSeleccionado = 'http' ; 
   nuevoPersonal(String id) async {
     final nuevoPersonal = new PersonalModel(
       id: 1,
